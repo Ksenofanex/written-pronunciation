@@ -1,1 +1,1 @@
-web: gunicorn written-pronunciation.wsgi --log-file -
+web: gunicorn written_pronunciation.wsgi --log-file -
