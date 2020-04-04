@@ -12,6 +12,9 @@ Features:
 - Tests.
 
 
+Pages:
+
+
 - Main Page: https://pronunciationksenofanex.herokuapp.com/
 
 - Word Detail Page: https://pronunciationksenofanex.herokuapp.com/1/
