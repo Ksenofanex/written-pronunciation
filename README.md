@@ -19,29 +19,30 @@ Pages
 
 - [Main Page](https://pronunciationksenofanex.herokuapp.com/)
 
-- Word Detail Page: https://pronunciationksenofanex.herokuapp.com/1/
+- [Word Detail Page](https://pronunciationksenofanex.herokuapp.com/1/) 
 
-- Log-in Page: https://pronunciationksenofanex.herokuapp.com/users/login/
+- [Log-in Page](https://pronunciationksenofanex.herokuapp.com/users/login/)
 
-- Sign-up Page: https://pronunciationksenofanex.herokuapp.com/users/signup/
-
+- [Sign-up Page](https://pronunciationksenofanex.herokuapp.com/users/signup/) 
 
 ***
 API
 ***
 
-- API Main Page: https://pronunciationksenofanex.herokuapp.com/api/v1/
+- [API Main Page](https://pronunciationksenofanex.herokuapp.com/api/v1/)
 
-- API Detail Page: https://pronunciationksenofanex.herokuapp.com/api/v1/1/
+- [API Detail Page](https://pronunciationksenofanex.herokuapp.com/api/v1/1/) 
 
-- API Authentication & Registration:
+***
+API Authentication & Registration
+***
 
-- API Registration Page: https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/
+- [API Registration Page](https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/) 
 
-- API Login Page: https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/v1/
+- [API Login Page](https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/v1/) 
 
 ***
 Docs
 ***
 
-- Main docs: https://pronunciationksenofanex.herokuapp.com/docs/
+- [Main Docs]( https://pronunciationksenofanex.herokuapp.com/docs/) 
