@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Local apps
     'users.apps.UsersConfig',
@@ -32,6 +33,20 @@ INSTALLED_APPS = [
 
     # Third-party apps
     'crispy_forms',
+
+    # Allauth for registration.
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # Django Rest Framework
+    'rest_framework',
+    'rest_framework.authtoken', # Built-in token auth. You must add it after adding TokenAuthentication to the bottom.
+    'rest_framework_swagger',
+
+    # Django-rest-auth for API login, logout, registration, pass reset etc.
+    'rest_auth', # Django-rest-auth for logging in & out and pass reset. You can use it with allauth.
+    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +139,25 @@ LOGOUT_REDIRECT_URL = 'home' # After logging out successfully, redirect to speci
 
 # Crispy template pack.
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Django Rest Framework settings.
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [  # For aut & authorization. Which users are going to be able to see and what can
+        # they do?
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',  # IsAuthenticated, AllowAny etc.
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [  # new
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',  # Important for DOCS. Won't work without it.
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For pass reset e-mail and account confirmation.
+
+SITE_ID = 1  # For hosting multiple websites. Allauth uses this with django.contrib.sites.
+
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': 'rest_login',
+    'LOGOUT_URL': 'rest_logout',
+}

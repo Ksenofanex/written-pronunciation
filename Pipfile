@@ -8,6 +8,13 @@ verify_ssl = true
 [packages]
 django = "*"
 django-crispy-forms = "*"
+djangorestframework = "*"
+django-rest-auth = "*"
+django-allauth = "*"
+coreapi = "*"
+pyyaml = "*"
+django-rest-swagger = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
