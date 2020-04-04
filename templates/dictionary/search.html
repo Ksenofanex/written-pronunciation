@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock title %}
+
+{% block content %}
+<h1>Search Results</h1>
+  {% for word in word_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold"><a href="{{ word.get_absolute_url }}">{{ word.english }}</a></span> &middot;
+        <span class="text-muted">by {{ word.author }}</span>
+      </div>
+      <div class="card-body">
+        <p>{{ word.english }}'s Turkish pronunciation is | {{ word.turkish }}</p>
+      </div>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}

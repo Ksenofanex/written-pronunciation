@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ word.english }} Pronunciation{% endblock title %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <span class="font-weight-bold">{{ word.english }}</span> &middot;
+    <span class="text-muted">by {{ word.author }}</span>
+  </div>
+  <div class="card-body">
+    <p>{{ word.english }}'s Turkish pronunciation is | {{ word.turkish }}</p>
+  </div>
+</div>
+{% if word.author == user %}
+<p><a href="{% url 'word_update' word.pk %}">Edit Word</a> |
+    <a href="{% url 'word_delete' word.pk %}">Delete Word</a></p>
+<p>Back to <a href="{% url 'home' %}">All Worlds</a></p>
+{% elif word.author != user and user.is_authenticated %}
+<p><h5>Since you are not the author of the word, you can't delete or edit it.</h5></p>
+<p><a href="{% url 'logout' %}">Logout</a></p>
+{% else %}
+<p><h5>You need to log in for updating and deleting words. Only the author of the word can edit & delete.</h5></p>
+<p><a href="{% url 'login' %}">Login</a></p>
+{% endif %}
+{% endblock content %}
