@@ -36,4 +36,4 @@ API Login Page: https://pronunciationksenofanex.herokuapp.com/api-auth/login/?ne
 
 Docs:
 
-Main docs: pronunciationksenofanex.herokuapp.com/docs/
+Main docs: https://pronunciationksenofanex.herokuapp.com/docs/
