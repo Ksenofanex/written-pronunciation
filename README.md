@@ -10,6 +10,7 @@ Features
 - Create, Read, Update And Delete functionality.
 - Search page and searching functionality.
 - API authentication & authorization.
+- API CRUD functionality.
 - API schema and documents.
 - Tests.
 
