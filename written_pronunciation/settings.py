@@ -161,3 +161,7 @@ SWAGGER_SETTINGS = {
     'LOGIN_URL': 'rest_login',
     'LOGOUT_URL': 'rest_logout',
 }
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
