@@ -1,7 +1,9 @@
 # written-pronunciation
 An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words's verbal pronunciation.
 
-Features: 
+***
+Features
+***
 
 - Bootstrap4.
 - User authentication & authorization.
@@ -11,9 +13,9 @@ Features:
 - API schema and documents.
 - Tests.
 
-
-Pages:
-
+***
+Pages
+***
 
 - Main Page: https://pronunciationksenofanex.herokuapp.com/
 
@@ -24,8 +26,9 @@ Pages:
 - Sign-up Page: https://pronunciationksenofanex.herokuapp.com/users/signup/
 
 
-
-API:
+***
+API
+***
 
 - API Main Page: https://pronunciationksenofanex.herokuapp.com/api/v1/
 
@@ -37,6 +40,8 @@ API:
 
 - API Login Page: https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/v1/
 
-Docs:
+***
+Docs
+***
 
 - Main docs: https://pronunciationksenofanex.herokuapp.com/docs/
