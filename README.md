@@ -15,7 +15,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 - Tests.
 
 ***
-Pages
+### Pages
 ***
 
 - [Main Page](https://pronunciationksenofanex.herokuapp.com/)
@@ -27,7 +27,7 @@ Pages
 - [Sign-up Page](https://pronunciationksenofanex.herokuapp.com/users/signup/) 
 
 ***
-API
+### API
 ***
 
 - [API Main Page](https://pronunciationksenofanex.herokuapp.com/api/v1/)
@@ -35,7 +35,7 @@ API
 - [API Detail Page](https://pronunciationksenofanex.herokuapp.com/api/v1/1/) 
 
 ***
-API Authentication & Registration
+### API Authentication & Registration
 ***
 
 - [API Registration Page](https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/) 
@@ -43,7 +43,7 @@ API Authentication & Registration
 - [API Login Page](https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/v1/) 
 
 ***
-Docs
+### Docs
 ***
 
 - [Main Docs]( https://pronunciationksenofanex.herokuapp.com/docs/) 
