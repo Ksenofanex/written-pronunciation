@@ -2,7 +2,7 @@
 An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words's verbal pronunciation.
 
 ***
-#Features
+### Features
 ***
 
 - Bootstrap4.
