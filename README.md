@@ -1,6 +1,8 @@
 # written-pronunciation
 An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words's verbal pronunciation.
 
+![alt text](https://i.imgur.com/cXT1TZR.png "Site Overview")
+
 ***
 ### Features
 ***
