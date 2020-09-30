@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>New word</h1>
+    <h1>New Word</h1>
     <form action="" method="post">
       {% csrf_token %}
       {{ form|crispy }}
