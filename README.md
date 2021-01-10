@@ -9,7 +9,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 - Bootstrap4.
 - User authentication & authorization.
-- Create, Read, Update And Delete functionality.
+- Create, Read, Update and Delete functionality.
 - Search page and searching functionality.
 - API authentication & authorization.
 - API CRUD functionality.
