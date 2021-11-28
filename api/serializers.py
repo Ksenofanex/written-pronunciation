@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .views import Word
+
+from dictionary.models import Word
 
 
 class WordSerializer(serializers.ModelSerializer):
