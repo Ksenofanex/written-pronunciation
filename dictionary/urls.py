@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import (
+
+from dictionary.views import (
     WordListView,
     WordDetailView,
     WordCreateView,
