@@ -1,8 +1,8 @@
 from rest_framework import generics
 from dictionary.models import Word
 
-from .serializers import WordSerializer
-from .permissions import IsAuthorOrReadOnly
+from api.serializers import WordSerializer
+from api.permissions import IsAuthorOrReadOnly
 
 
 class WordList(generics.ListCreateAPIView):
