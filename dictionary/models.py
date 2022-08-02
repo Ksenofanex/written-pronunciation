@@ -9,9 +9,10 @@ class Word(models.Model):
     turkish = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.english # Human readable object name.
+        return self.english  # Human readable object name.
 
     def get_absolute_url(self):
-        return reverse('word_detail', args=[str(self.id)])
+        return reverse("word_detail", args=[str(self.id)])
+
     # The get_absolute_url() method sets a canonical URL for the model.
     # It is also the correct way to refer to a model in your templates rather than hard-coding them.
