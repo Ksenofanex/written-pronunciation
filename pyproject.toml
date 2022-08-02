@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "written-pronunciation"
+version = "0.1.0"
+description = ""
+authors = ["Burak Kadir Er <burakkadirer@protonmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Django = "2.2.*"
+djangorestframework = "3.12.*"
+django-crispy-forms = "1.13.*"
+django-allauth = "0.41.*"
+django-rest-auth = "0.9.*"
+coreapi = "2.3.*"
+PyYAML = "5.4"
+django-rest-swagger = "2.2.*"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
