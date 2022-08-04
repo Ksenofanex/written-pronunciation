@@ -11,7 +11,6 @@ class WordListView(ListView):
     queryset = Word.objects.select_related("author")
     template_name = "dictionary/home.html"
     context_object_name = "word_list"
-    ordering = ["english"]  # Ordering alphabetically.
     paginate_by = 5
 
 

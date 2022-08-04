@@ -27,6 +27,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    "django_filters",
     "crispy_forms",
     "allauth",
     "allauth.account",
@@ -160,6 +161,9 @@ REST_FRAMEWORK = {
     "DEFAULT_VERSIONING_CLASS": (  # For API versioning. Defined in namespace
         # of root url. v1, v2 etc.
         "rest_framework.versioning.NamespaceVersioning"
+    ),
+    "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
     ),
 }
 
