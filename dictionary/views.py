@@ -11,7 +11,7 @@ class WordListView(ListView):
     queryset = Word.objects.select_related("author")
     template_name = "dictionary/home.html"
     context_object_name = "word_list"
-    paginate_by = 5
+    paginate_by = 10
 
 
 class WordDetailView(DetailView):
@@ -70,7 +70,7 @@ class SearchResultsView(ListView):
     queryset = Word.objects.select_related("author")
     template_name = "dictionary/search.html"
     context_object_name = "word_list"
-    paginate_by = 1
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get("q")
