@@ -10,7 +10,9 @@ class Word(models.Model):
         related_name="words",
         related_query_name="word",
     )
-    english = models.CharField(verbose_name="english word", max_length=250)
+    english = models.CharField(
+        verbose_name="english word", max_length=250, unique=True
+    )
     turkish = models.CharField(verbose_name="turkish word", max_length=250)
 
     class Meta:
