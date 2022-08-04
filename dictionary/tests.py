@@ -4,6 +4,8 @@ from django.urls import reverse
 
 from dictionary.models import Word
 
+User = get_user_model()
+
 
 class HomePageTests(TestCase):
     def setUp(self):
@@ -24,11 +26,10 @@ class HomePageTests(TestCase):
 
 class WordTests(TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
+        self.user = User.objects.create_user(
             username="testuser",
             password="testpass123",
         )
-
         self.word = Word.objects.create(
             english="Blood",
             author=self.user,

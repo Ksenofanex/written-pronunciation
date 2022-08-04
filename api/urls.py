@@ -1,8 +1,6 @@
-from django.urls import path
-from .views import WordList, WordDetail
+from rest_framework.routers import DefaultRouter
 
+from api.viewsets import WordViewSet
 
-urlpatterns = [
-    path("", WordList.as_view(), name="api-home"),
-    path("<int:pk>/", WordDetail.as_view(), name="api-word-detail"),
-]
+router = DefaultRouter()
+router.register("words", WordViewSet, basename="word")

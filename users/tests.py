@@ -2,10 +2,11 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
+User = get_user_model()
+
 
 class CustomUserTests(TestCase):
     def test_create_user(self):
-        User = get_user_model()
         user = User.objects.create_user(
             username="hedaelus",
             email="hedaelus@gmail.com",
@@ -18,7 +19,6 @@ class CustomUserTests(TestCase):
         self.assertFalse(user.is_superuser)
 
     def test_create_superuser(self):
-        User = get_user_model()
         admin_user = User.objects.create_superuser(
             username="superadmin",
             email="superadmin@admin.com",
@@ -48,8 +48,6 @@ class SignupTests(TestCase):
         )
 
     def test_signup_form(self):
-        new_user = get_user_model().objects.create_user(self.username)
-        self.assertEqual(get_user_model().objects.all().count(), 1)
-        self.assertEqual(
-            get_user_model().objects.all()[0].username, self.username
-        )
+        User.objects.create_user(self.username)
+        self.assertEqual(User.objects.all().count(), 1)
+        self.assertEqual(User.objects.first().username, self.username)

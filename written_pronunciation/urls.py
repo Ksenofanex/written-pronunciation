@@ -1,9 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
+
 from rest_framework.documentation import include_docs_urls
 from rest_framework_swagger.views import get_swagger_view
 
-API_TITLE = "Pronunciation API"
+from api.urls import router as api_router
+
+API_TITLE = "Written Pronunciation API"
 API_DESCRIPTION = "A cool written pronunciation site."
 schema_view = get_swagger_view(title=API_TITLE)
 
@@ -14,7 +17,7 @@ urlpatterns = [
     path("users/", include("users.urls")),
     path("users/", include("django.contrib.auth.urls")),
     # API.
-    path("api/v1/", include("api.urls")),
+    path("api/", include((api_router.urls, "v1"))),
     path(
         "api-auth/", include("rest_framework.urls")
     ),  # Djangorestframework built-in api log in & out.
