@@ -3,22 +3,20 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = "3$2vbh!3u2jp!7&(jh+qmcxz&da692wjtvlqs*l&kk!dyejl8m"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
 
-INSTALLED_APPS = [
-    # Built-in apps
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -26,23 +24,28 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    # Local apps
-    "users.apps.UsersConfig",
-    "dictionary.apps.DictionaryConfig",
-    # Third-party apps
+]
+
+THIRD_PARTY_APPS = [
     "crispy_forms",
-    # Allauth for registration.
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    # Django Rest Framework
     "rest_framework",
-    "rest_framework.authtoken",  # Built-in token auth. You must add it after adding TokenAuthentication to the bottom.
+    "rest_framework.authtoken",
     "rest_framework_swagger",
-    # Django-rest-auth for API login, logout, registration, pass reset etc.
-    "rest_auth",  # Django-rest-auth for logging in & out and pass reset. You can use it with allauth.
+    "rest_auth",
     "rest_auth.registration",
 ]
+
+LOCAL_APPS = [
+    "users.apps.UsersConfig",
+    "dictionary.apps.DictionaryConfig",
+    "api.apps.ApiConfig",
+]
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -76,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "written_pronunciation.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -86,7 +88,6 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -112,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -126,7 +126,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = "/static/"
@@ -138,47 +137,40 @@ STATICFILES_DIRS = [
 ]
 
 # User related settings.
-AUTH_USER_MODEL = (  # Use the CustomUser model instead of default one.
-    "users.CustomUser"
-)
+AUTH_USER_MODEL = "users.CustomUser"
 
-
-# Authentication
-LOGIN_REDIRECT_URL = (  # After logging in successfully, redirect to specified url name.
-    "home"
-)
-LOGOUT_REDIRECT_URL = (  # After logging out successfully, redirect to specified url name.
-    "home"
-)
+# Authentication redirects.
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
 
 # Crispy template pack.
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Django Rest Framework settings.
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [  # For aut & authorization. Which users are going to be able to see and what can
-        # they do?
-        "rest_framework.permissions.IsAuthenticatedOrReadOnly",  # IsAuthenticated, AllowAny etc.
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ],
-    "DEFAULT_AUTHENTICATION_CLASSES": [  # new
+    "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
-    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",  # Important for DOCS. Won't work without it.
+    # Important for DOCS. Won't work without it.
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+    "DEFAULT_VERSIONING_CLASS": (  # For API versioning. Defined in namespace
+        # of root url. v1, v2 etc.
+        "rest_framework.versioning.NamespaceVersioning"
+    ),
 }
 
 EMAIL_BACKEND = (  # For pass reset e-mail and account confirmation.
     "django.core.mail.backends.console.EmailBackend"
 )
 
-SITE_ID = 1  # For hosting multiple websites. Allauth uses this with django.contrib.sites.
+SITE_ID = 1  # For hosting multiple websites. Allauth uses this with
+# django.contrib.sites.
 
 SWAGGER_SETTINGS = {
     "LOGIN_URL": "rest_login",
     "LOGOUT_URL": "rest_logout",
 }
-
-# Configure Django App for Heroku.
-import django_heroku
-
-django_heroku.settings(locals())
