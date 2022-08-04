@@ -13,8 +13,8 @@
   </div>
 </div>
 {% if word.author == user %}
-<p><a href="{% url 'word_update' word.pk %}">Edit Word</a> |
-    <a href="{% url 'word_delete' word.pk %}">Delete Word</a></p>
+<p><a href="{% url 'word-update' word.pk %}">Edit Word</a> |
+    <a href="{% url 'word-delete' word.pk %}">Delete Word</a></p>
 <p>Back to <a href="{% url 'home' %}">All Words</a></p>
 {% elif word.author != user and user.is_authenticated %}
 <p><h5>Since you are not the author of the word, you can't delete or edit it.</h5></p>

@@ -11,5 +11,5 @@ class IsAuthorOrReadOnly(
         ):  # SAFE.METHODS contain GET-OPTIONS-HEAD etc.
             return True
 
-        # Write permissions only allowed to the author of the post.
+        # Write permissions only allowed to the author of the Word.
         return obj.author == request.user
