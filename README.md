@@ -6,8 +6,7 @@
 
 An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words' verbal pronunciation.
 
-![alt text](https://i.imgur.com/xYaVoc0.png "Main Page Overview")
-
+![written-pronunciation-production-ss](https://user-images.githubusercontent.com/53350572/183075250-12c8a87a-b570-4eb2-831c-990d009e832b.png)
 
 ***
 
