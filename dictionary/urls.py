@@ -7,6 +7,7 @@ from dictionary.views import (
     WordUpdateView,
     WordDeleteView,
     SearchResultsView,
+    UserWordListView,
 )
 
 
@@ -20,4 +21,5 @@ urlpatterns = [
     path("<int:pk>/delete/", WordDeleteView.as_view(), name="word-delete"),
     # Search.
     path("search/", SearchResultsView.as_view(), name="search"),
+    path("users/<str:username>/", UserWordListView.as_view(), name="user"),
 ]

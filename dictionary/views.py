@@ -1,9 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth import get_user_model
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 from dictionary.models import Word
+
+User = get_user_model()
 
 
 class WordListView(ListView):
@@ -81,3 +84,19 @@ class SearchResultsView(ListView):
         context["query"] = self.request.GET.get("q")  # For pagination, to save
         # the query info and access it through pages.
         return context
+
+
+class UserWordListView(ListView):
+    model = Word
+    template_name = "dictionary/user_word_list.html"
+    context_object_name = "word_list"
+    paginate_by = 5
+
+    def get_queryset(self):
+        username = self.kwargs.get("username")
+        author = User.objects.get(username=username)
+        return (
+            Word.objects.select_related("author")
+            .filter(author=author)
+            .order_by("-date_created")
+        )
