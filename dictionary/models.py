@@ -4,16 +4,26 @@ from django.urls import reverse
 
 
 class Word(models.Model):
+    english = models.CharField(
+        verbose_name="english word", max_length=250, unique=True
+    )
+    turkish = models.CharField(verbose_name="turkish word", max_length=250)
+
+    # ForeignKey relations.
     author = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="words",
         related_query_name="word",
     )
-    english = models.CharField(
-        verbose_name="english word", max_length=250, unique=True
+
+    # Date fields.
+    date_created = models.DateTimeField(
+        verbose_name="date created", auto_now_add=True
     )
-    turkish = models.CharField(verbose_name="turkish word", max_length=250)
+    date_updated = models.DateTimeField(
+        verbose_name="date updated", auto_now=True
+    )
 
     class Meta:
         verbose_name = "Word"
