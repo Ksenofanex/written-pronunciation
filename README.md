@@ -6,7 +6,7 @@
 
 An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words' verbal pronunciation.
 
-![alt text](https://i.imgur.com/XpJYj3J.png "Main Page Overview")
+![alt text](https://i.imgur.com/8VriUzv.png "Main Page Overview")
 
 
 ***
@@ -102,7 +102,7 @@ Make sure your working directory is the same with the project and virtualenv pac
 
 ```bash
 > pwd
-/written-pronunciation
+\written-pronunciation
 
 > pip install virtualenv
 
@@ -151,6 +151,6 @@ $ python3 manage.py runserver
 
 ![Virtualenv success output](https://i.imgur.com/9Dwp7s0.png)
 
-Then you can start exploring the project from either http://localhost:8000/api/ or http://127.0.0.1:8000/api/. Happy coding!
+Then you can start exploring the project from either http://localhost:8000/ or http://localhost:8000/api. Happy coding!
 
 > You can access to the documentation of the project from this URLs (http://localhost:8000/swagger-docs/ or http://127.0.0.1:8000/swagger-docs/).
