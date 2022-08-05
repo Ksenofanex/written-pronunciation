@@ -17,6 +17,8 @@ class WordSerializer(serializers.ModelSerializer):
             "english",
             "turkish",
             "author_name",
+            "date_created",
+            "date_updated",
         )
 
     def create(self, validated_data):
