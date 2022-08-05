@@ -1,17 +1,24 @@
-# PyCharm
+# PyCharm related files.
 .idea/
 
-# virtualenv
-.env
+# Virtual environment files.
 .venv
 venv/
 ENV/
+env/
 
-# DB
+# Local DB.
 db.sqlite3
 
-# Pycaches
+# Pycaches.
 __pycache__/
+.pytest_cache/
 
-# Migrations
+# Migrations.
 migrations/
+
+# VsCode related files.
+.vscode
+
+# Environment variables file.
+.env
