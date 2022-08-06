@@ -23,6 +23,8 @@ urlpatterns = [
     path("search/", SearchResultsView.as_view(), name="search"),
     # User's Words.
     path(
-        "user-words/<str:username>/", UserWordListView.as_view(), name="user"
+        "user-words/<str:username>/",
+        UserWordListView.as_view(),
+        name="user-words",
     ),
 ]
