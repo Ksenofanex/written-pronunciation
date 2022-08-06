@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from dictionary.models import Word
 
@@ -10,5 +11,8 @@ from api.filters import WordFilter
 class WordViewSet(viewsets.ModelViewSet):
     queryset = Word.objects.select_related("author").filter(is_approved=True)
     serializer_class = WordSerializer
-    permission_classes = (IsAuthorOrReadOnly,)
+    permission_classes = (
+        IsAuthenticatedOrReadOnly,
+        IsAuthorOrReadOnly,
+    )
     filterset_class = WordFilter

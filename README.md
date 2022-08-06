@@ -40,7 +40,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 - [API Registration Page](https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/) 
 
-- [API Login Page](https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/v1/)
+- [API Login Page](https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/)
 
 ## API
 
