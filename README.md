@@ -1,6 +1,6 @@
 # written-pronunciation
 
-**Although you can view this project on the site, it's no longer active or maintained. It's been archived for future references.**
+**Although you can view this project on the site (the project was primarily built for the desktop, so its mobile UI is far from being aesthetic and responsive), it is no longer active or maintained. It's been archived for future references.**
 
 ***
 
@@ -36,7 +36,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 - [User's Words](https://pronunciationksenofanex.herokuapp.com/user-words/Ksenofanex/)
 
-## API Authentication & Registration
+## API Registration & Authentication
 
 - [API Registration Page](https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/) 
 
@@ -48,7 +48,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 - [API Main Page](https://pronunciationksenofanex.herokuapp.com/api/words/) 
 
-## Documentation
+## API Documentation
 
 - [Main Documentation]( https://pronunciationksenofanex.herokuapp.com/swagger-docs/)
 
@@ -152,5 +152,7 @@ $ python3 manage.py runserver
 ![Virtualenv success output](https://i.imgur.com/9Dwp7s0.png)
 
 Then you can start exploring the project from either http://localhost:8000/ or http://localhost:8000/api. Happy coding!
+
+> Remember, you must approve the created Words from the admin panel in order them to be visible across the project.
 
 > You can access to the documentation of the project from this URLs (http://localhost:8000/swagger-docs/ or http://127.0.0.1:8000/swagger-docs/).
