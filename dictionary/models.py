@@ -8,6 +8,9 @@ class Word(models.Model):
         verbose_name="english word", max_length=250, unique=True
     )
     turkish = models.CharField(verbose_name="turkish word", max_length=250)
+    is_approved = models.BooleanField(
+        verbose_name="is approved?", default=False
+    )  # The word must be approved via admin to be visible across the site.
 
     # ForeignKey relations.
     author = models.ForeignKey(

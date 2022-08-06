@@ -11,7 +11,7 @@ User = get_user_model()
 
 class WordListView(ListView):
     model = Word
-    queryset = Word.objects.select_related("author")
+    queryset = Word.objects.select_related("author").filter(is_approved=True)
     template_name = "dictionary/home.html"
     context_object_name = "word_list"
     paginate_by = 5
@@ -70,14 +70,15 @@ class WordDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class SearchResultsView(ListView):
     model = Word
-    queryset = Word.objects.select_related("author")
     template_name = "dictionary/search.html"
     context_object_name = "word_list"
     paginate_by = 5
 
     def get_queryset(self):
         query = self.request.GET.get("q")
-        return Word.objects.filter(english__icontains=query)
+        return Word.objects.select_related("author").filter(
+            english__icontains=query, is_approved=True
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -95,6 +96,8 @@ class UserWordListView(ListView):
     def get_queryset(self):
         return (
             Word.objects.select_related("author")
-            .filter(author__username=self.kwargs.get("username"))
+            .filter(
+                author__username=self.kwargs.get("username"), is_approved=True
+            )
             .order_by("-date_created")
         )

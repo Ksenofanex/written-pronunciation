@@ -8,7 +8,7 @@ from api.filters import WordFilter
 
 
 class WordViewSet(viewsets.ModelViewSet):
-    queryset = Word.objects.select_related("author")
+    queryset = Word.objects.select_related("author").filter(is_approved=True)
     serializer_class = WordSerializer
     permission_classes = (IsAuthorOrReadOnly,)
     filterset_class = WordFilter
