@@ -26,27 +26,27 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 ## Pages
 
-- [Sign Up Page](https://pronunciationksenofanex.herokuapp.com/users/signup/) 
+- [Sign Up](https://pronunciationksenofanex.herokuapp.com/users/signup/) 
 
-- [Login Page](https://pronunciationksenofanex.herokuapp.com/users/login/)
+- [Login](https://pronunciationksenofanex.herokuapp.com/users/login/)
 
-- [Main Page](https://pronunciationksenofanex.herokuapp.com/)
+- [Main](https://pronunciationksenofanex.herokuapp.com/)
 
-- [Word Detail Page](https://pronunciationksenofanex.herokuapp.com/2/) 
+- [Word Detail](https://pronunciationksenofanex.herokuapp.com/2/) 
 
 - [User's Words](https://pronunciationksenofanex.herokuapp.com/user-words/Ksenofanex/)
 
 ## API Registration & Authentication
 
-- [API Registration Page](https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/) 
+- [API Registration](https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/) 
 
-- [API Login Page](https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/)
+- [API Login](https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/)
 
 ## API
 
 - [API Root](https://pronunciationksenofanex.herokuapp.com/api/)
 
-- [API Main Page](https://pronunciationksenofanex.herokuapp.com/api/words/) 
+- [API Main](https://pronunciationksenofanex.herokuapp.com/api/words/) 
 
 ## API Documentation
 
