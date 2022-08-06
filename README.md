@@ -1,6 +1,6 @@
 # written-pronunciation
 
-**Although you can view this project on the site (the project was primarily built for the desktop, so its mobile UI is far from being aesthetic and responsive), it is no longer active or maintained. It's been archived for future references.**
+**Although you can view this project on the site (the project was primarily built for the desktop, so its mobile UI is far from being aesthetic and responsive -help wanted! :)-), it is no longer active or maintained. Still, you can open an issue or a PR if you find a critical bug, I'll fix it ASAP.**
 
 ***
 
