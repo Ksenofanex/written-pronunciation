@@ -10,7 +10,7 @@ class WordModelTests(WrittenPronunciationTestCase):
     def setUpTestData(cls):
         cls.test_word = WordFactory(english="Factory")
 
-    def test_if_word_is_created(self):
+    def test_is_created(self):
         assert self.test_word.english == "Factory"
         assert self.test_word.turkish == "Fektri"
         assert self.test_word.is_approved is True

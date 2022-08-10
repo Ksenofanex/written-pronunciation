@@ -6,23 +6,23 @@ User = get_user_model()
 
 
 class LoginViewTests(WrittenPronunciationTestCase):
-    def test_if_login_page_works(self):
+    def test_page(self):
         """Checks if login page is up and running."""
         self.get_check_200(url="login")
 
-    def test_if_login_page_uses_correct_template(self):
+    def test_template(self):
         """Checks if login page uses correct template."""
         response = self.get(url_name="login")
         assert response.template_name == ["registration/login.html"]
 
-    def test_if_login_page_contains_correct_content(self):
+    def test_content(self):
         """Checks if login page contains correct content."""
         response = self.get(url_name="login")
         assert "Login" in response.content.decode("utf-8")
         assert "Username" in response.content.decode("utf-8")
         assert "Password" in response.content.decode("utf-8")
 
-    def test_if_login_page_form_works(self):
+    def test_form(self):
         """Checks if login page form works properly and user is logged in
         successfully."""
         self.make_user(username="test-user-1", password="test-password")
@@ -38,16 +38,16 @@ class LoginViewTests(WrittenPronunciationTestCase):
 
 
 class SignUpViewTests(WrittenPronunciationTestCase):
-    def test_if_signup_page_works(self):
+    def test_page(self):
         """Checks if signup page is up and running."""
         self.get_check_200(url="signup")
 
-    def test_if_signup_page_uses_correct_template(self):
+    def test_template(self):
         """Checks if signup page uses correct template."""
         response = self.get(url_name="signup")
         assert response.template_name == ["signup.html"]
 
-    def test_if_signup_page_contains_correct_content(self):
+    def test_content(self):
         """Checks if signup page contains correct content."""
         response = self.get(url_name="signup")
         assert "Sign Up" in response.content.decode("utf-8")
@@ -55,7 +55,7 @@ class SignUpViewTests(WrittenPronunciationTestCase):
         assert "Password" in response.content.decode("utf-8")
         assert "Password confirmation" in response.content.decode("utf-8")
 
-    def test_if_signup_page_form_works(self):
+    def test_form(self):
         """Checks if signup page form works properly and user is created
         successfully."""
         data = {
