@@ -44,6 +44,7 @@ class WordUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         "english",
         "turkish",
     )
+    login_url = "login"  # For redirecting when user isn't logged in.
 
     def test_func(
         self,
@@ -59,6 +60,7 @@ class WordDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy(
         "home"
     )  # After action is successful, redirect to the desired page.
+    login_url = "login"  # For redirecting when user isn't logged in.
 
     def test_func(
         self,
