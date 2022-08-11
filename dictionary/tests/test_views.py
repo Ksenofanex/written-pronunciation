@@ -34,7 +34,7 @@ class WordListViewTests(WrittenPronunciationTestCase):
         assert self.get_context(key="is_paginated") is True
 
     def test_pagination(self):
-        """Checks if pagination works in word list page."""
+        """Checks if pagination works in Word list page."""
         WordFactory.create_batch(10)  # Creates specified number of Words.
 
         self.get(url_name="home")
