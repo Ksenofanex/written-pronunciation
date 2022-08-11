@@ -373,7 +373,7 @@ class UserWordListViewTests(WrittenPronunciationTestCase):
     def test_is_paginated(self):
         """Checks if user word list page is paginated."""
         user = self.make_user()
-        for i in range(10):
+        for _ in range(10):
             WordFactory(author=user)
 
         self.get(url_name="user-words", username=user.username)
@@ -382,7 +382,7 @@ class UserWordListViewTests(WrittenPronunciationTestCase):
     def test_pagination(self):
         """Checks if pagination works in user word list page."""
         user = self.make_user()
-        for i in range(10):
+        for _ in range(10):
             WordFactory(author=user)
 
         self.get(url_name="user-words", username=user.username)
