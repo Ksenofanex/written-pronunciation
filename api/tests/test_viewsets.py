@@ -22,13 +22,12 @@ class WordViewSetTests(WrittenPronunciationTestCase):
         assert word.author.username in relevant_response_data["author_name"]
 
     def test_unapproved_object(self):
-        """Checks if unapproved object is visible in list page."""
-        unapproved_word = WordFactory(is_approved=False)
+        """Checks if unapproved Word is visible in list page."""
+        WordFactory(is_approved=False)
 
         response = self.get(url_name="v1:word-list")
         self.assert_http_200_ok(response=response)
-        assert unapproved_word.english not in response.data
-        assert unapproved_word.turkish not in response.data
+        assert response.data["count"] == 0
 
     def test_detail_page(self):
         """Checks if Word detail page is accessible to all."""
