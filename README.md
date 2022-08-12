@@ -20,7 +20,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 - API authentication & authorization.
 - API CRUD functionality.
 - API documentation.
-- Tests.
+- Thorough and elegant tests.
 
 # Live showcase
 
