@@ -4,7 +4,7 @@ from users.tests.factories import UserFactory
 
 
 class UserModelTests(WrittenPronunciationTestCase):
-    """Creates mock models and checks if they are created successfully."""
+    """Creates mock objects and checks if they are created successfully."""
 
     @classmethod
     def setUpTestData(cls):

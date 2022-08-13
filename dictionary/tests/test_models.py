@@ -4,7 +4,7 @@ from dictionary.tests.factories import WordFactory
 
 
 class WordModelTests(WrittenPronunciationTestCase):
-    """Creates mock model and checks if it is created successfully."""
+    """Creates mock object and checks if it is created successfully."""
 
     @classmethod
     def setUpTestData(cls):
