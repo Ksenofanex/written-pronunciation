@@ -252,7 +252,7 @@ class WordDeleteViewTests(WrittenPronunciationTestCase):
         """Checks if authorized user (i.e.: user that is author of Word)
         can delete Word."""
         user = self.make_user()
-        word = WordFactory(author=user)
+        word = WordFactory(english="ANNIHILATE", author=user)
 
         with self.login(user):
             response = self.post(url_name="word-delete", pk=word.id)
