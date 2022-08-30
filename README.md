@@ -4,7 +4,7 @@
 
 ***
 
-An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words' verbal pronunciation.
+An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words' verbal pronunciation. It was my second project and I developed it while learning Django, Django Rest Framework and back end development in general.
 
 ![Main Page SS](https://i.imgur.com/KrhZ8VD.png)
 
