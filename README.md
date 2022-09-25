@@ -26,31 +26,31 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 ## Pages
 
-- [Sign Up](https://pronunciationksenofanex.herokuapp.com/users/signup/) 
+- [Sign Up](https://writtenpronunciation.fly.dev/users/signup/) 
 
-- [Login](https://pronunciationksenofanex.herokuapp.com/users/login/)
+- [Login](https://writtenpronunciation.fly.dev/users/login/)
 
-- [Main](https://pronunciationksenofanex.herokuapp.com/)
+- [Main](https://writtenpronunciation.fly.dev/)
 
-- [Word Detail](https://pronunciationksenofanex.herokuapp.com/2/) 
+- [Word Detail](https://writtenpronunciation.fly.dev/2/) 
 
-- [User's Words](https://pronunciationksenofanex.herokuapp.com/user-words/Ksenofanex/)
+- [User's Words](https://writtenpronunciation.fly.dev/user-words/Ksenofanex/)
 
 ## API Registration & Authentication
 
-- [API Registration](https://pronunciationksenofanex.herokuapp.com/api/v1/rest-auth/registration/) 
+- [API Registration](https://writtenpronunciation.fly.dev/api/v1/rest-auth/registration/) 
 
-- [API Login](https://pronunciationksenofanex.herokuapp.com/api-auth/login/?next=/api/)
+- [API Login](https://writtenpronunciation.fly.dev/api-auth/login/?next=/api/)
 
 ## API
 
-- [API Root](https://pronunciationksenofanex.herokuapp.com/api/)
+- [API Root](https://writtenpronunciation.fly.dev/api/)
 
-- [API Main](https://pronunciationksenofanex.herokuapp.com/api/words/) 
+- [API Main](https://writtenpronunciation.fly.dev/api/words/) 
 
 ## API Documentation
 
-- [Main Documentation]( https://pronunciationksenofanex.herokuapp.com/swagger-docs/)
+- [Main Documentation](https://writtenpronunciation.fly.dev/swagger-docs/)
 
 # Installation
 
