@@ -5,24 +5,41 @@
 {% block content %}
 <div class="card">
   <div class="card-header">
-    <span class="font-weight-bold">{{ word.english }}</span> &middot;
-    <span class="text-muted">by <a href="{% url 'user-words' word.author.username %}">{{ word.author }}</a></span> &middot;
-    <span class="text-muted">Created at: {{ word.date_created|date:"d M, Y" }}</span> &middot;
-    <span class="text-muted">Updated at: {{ word.date_updated|date:"d M, Y" }}</span> &middot;
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <h2 class="h4 mb-0">{{ word.english }}</h2>
+      <div class="d-flex align-items-center gap-3">
+        <span class="separator">•</span>
+        <span class="text-muted">by <a href="{% url 'user-words' word.author.username %}">{{ word.author }}</a></span>
+      </div>
+    </div>
+    {% if word.author == user %}
+    <div class="mt-2 text-muted small">
+      <span>Created: {{ word.date_created|date:"d M, Y" }}</span>
+      <span class="mx-2">•</span>
+      <span>Updated: {{ word.date_updated|date:"d M, Y" }}</span>
+    </div>
+    {% endif %}
   </div>
   <div class="card-body">
-    <p>{{ word.english }}'s Turkish pronunciation is | {{ word.turkish }}</p>
+    <p class="mb-4">{{ word.turkish }}</p>
+    
+    {% if word.author == user %}
+      <div class="d-flex gap-2">
+        <a href="{% url 'word-update' word.pk %}" class="btn btn-primary">Edit Word</a>
+        <a href="{% url 'word-delete' word.pk %}" class="btn btn-outline-danger">Delete Word</a>
+        <a href="{% url 'home' %}" class="btn btn-outline-secondary ms-auto">Back to All Words</a>
+      </div>
+    {% elif word.author != user and user.is_authenticated %}
+      <div class="alert alert-info" role="alert">
+        <p class="mb-2">Since you are not the author of the word, you can't delete or edit it.</p>
+        <a href="{% url 'logout' %}" class="btn btn-outline-primary btn-sm">Log Out</a>
+      </div>
+    {% else %}
+      <div class="alert alert-info" role="alert">
+        <p class="mb-2">You need to log in for updating and deleting words. Only the author of the word can edit & delete.</p>
+        <a href="{% url 'login' %}" class="btn btn-glow">Log In</a>
+      </div>
+    {% endif %}
   </div>
 </div>
-
-{% if word.author == user %}
-  <p><a href="{% url 'word-update' word.pk %}">Edit Word</a> | <a href="{% url 'word-delete' word.pk %}">Delete Word</a></p>
-  <p>Back to <a href="{% url 'home' %}">All Words</a></p>
-{% elif word.author != user and user.is_authenticated %}
-  <p><h5>Since you are not the author of the word, you can't delete or edit it.</h5></p>
-  <p><a href="{% url 'logout' %}">Logout</a></p>
-{% else %}
-  <p><h5>You need to log in for updating and deleting the words. Only the author of the word can edit & delete.</h5></p>
-  <p><a href="{% url 'login' %}">Login</a></p>
-{% endif %}
 {% endblock content %}

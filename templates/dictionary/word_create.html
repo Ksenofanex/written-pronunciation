@@ -3,10 +3,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>New Word</h1>
-    <form action="" method="post">
-      {% csrf_token %}
-      {{ form|crispy }}
-      <button class="btn btn-success ml-2" type="submit">Send Word</button>
+<div class="form-container" style="max-width: 600px; margin: 2rem auto;">
+    <h1 class="mb-4">New Word</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="mt-4">
+            <button class="btn btn-primary" type="submit">Send Word</button>
+        </div>
     </form>
+</div>
 {% endblock content %}
