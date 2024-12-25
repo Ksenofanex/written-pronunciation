@@ -1,4 +1,4 @@
-# written-pronunciation
+# Written Pronunciation
 
 **Although you can view this project on the demo site, it is no longer active or maintained. Still, you can open an issue or a PR if you find a critical bug, I'll take care of it ASAP.**
 
@@ -26,9 +26,9 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 ## Pages
 
-- [Sign Up](https://writtenpronunciationksenofanex.fly.dev/users/signup/) 
+- [Sign up](https://writtenpronunciationksenofanex.fly.dev/users/signup/) 
 
-- [Login](https://writtenpronunciationksenofanex.fly.dev/users/login/)
+- [Log in](https://writtenpronunciationksenofanex.fly.dev/users/login/)
 
 - [Main](https://writtenpronunciationksenofanex.fly.dev/)
 
@@ -40,7 +40,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 - [API Registration](https://writtenpronunciationksenofanex.fly.dev/api/v1/rest-auth/registration/) 
 
-- [API Login](https://writtenpronunciationksenofanex.fly.dev/api-auth/login/?next=/api/)
+- [API Log in](https://writtenpronunciationksenofanex.fly.dev/api-auth/login/?next=/api/)
 
 ## API
 
