@@ -32,12 +32,12 @@
     {% elif word.author != user and user.is_authenticated %}
       <div class="alert alert-info" role="alert">
         <p class="mb-2">Since you are not the author of the word, you can't delete or edit it.</p>
-        <a href="{% url 'logout' %}" class="btn btn-outline-primary btn-sm">Log Out</a>
+        <a href="{% url 'logout' %}" class="btn btn-outline-primary btn-sm">Log out</a>
       </div>
     {% else %}
       <div class="alert alert-info" role="alert">
         <p class="mb-2">You need to log in for updating and deleting words. Only the author of the word can edit & delete.</p>
-        <a href="{% url 'login' %}" class="btn btn-glow">Log In</a>
+        <a href="{% url 'login' %}" class="btn btn-glow">Log in</a>
       </div>
     {% endif %}
   </div>

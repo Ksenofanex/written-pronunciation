@@ -41,12 +41,12 @@
             {% if user.is_authenticated %}
               <div class="d-flex flex-column w-100 gap-2">
                 <span class="text-muted">Logged in as <span class="badge bg-primary">{{ user.username }}</span></span>
-                <a href="{% url 'logout' %}" class="btn btn-outline-danger w-100">Log Out</a>
+                <a href="{% url 'logout' %}" class="btn btn-outline-danger w-100">Log out</a>
               </div>
             {% else %}
               <div class="d-flex gap-2 w-100">
-                <a href="{% url 'login' %}" class="btn btn-outline-secondary flex-grow-1">Log In</a>
-                <a href="{% url 'signup' %}" class="btn btn-primary flex-grow-1">Sign Up</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary flex-grow-1">Log in</a>
+                <a href="{% url 'signup' %}" class="btn btn-primary flex-grow-1">Sign up</a>
               </div>
             {% endif %}
           </div>
@@ -59,12 +59,12 @@
                 {{ user.username }}
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>
               </ul>
             </div>
           {% else %}
-            <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log In</a>
-            <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
+            <a href="{% url 'signup' %}" class="btn btn-primary">Sign up</a>
           {% endif %}
         </div>
       </div>
