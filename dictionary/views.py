@@ -101,5 +101,4 @@ class UserWordListView(ListView):
             .filter(
                 author__username=self.kwargs.get("username"), is_approved=True
             )
-            .order_by("-date_created")
         )
