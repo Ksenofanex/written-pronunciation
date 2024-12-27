@@ -32,7 +32,7 @@ An English written pronunciation site for Turkish hard of hearing and deaf peopl
 
 - [Main](https://writtenpronunciationksenofanex.fly.dev/)
 
-- [Word Detail](https://writtenpronunciationksenofanex.fly.dev/2/) 
+- [Word Detail](https://writtenpronunciationksenofanex.fly.dev/3/) 
 
 - [User's Words](https://writtenpronunciationksenofanex.fly.dev/user-words/Ksenofanex/)
 
