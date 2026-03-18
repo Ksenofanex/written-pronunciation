@@ -6,16 +6,17 @@
 <div class="word-list-header">Words by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</div>
 
 {% for word in word_list %}
-  <a href="{{ word.get_absolute_url }}" class="word-block">
+  <div class="word-block" onclick="window.location='{{ word.get_absolute_url }}'">
     <div class="word-english">{{ word.english }}</div>
     <div class="word-pronunciation">{{ word.turkish }}</div>
-    <div class="word-meta">By {{ word.author }} &middot; {{ word.date_created|date:"d M Y" }}</div>
-  </a>
+    <div class="word-meta">By <a href="{% url 'user-words' word.author.username %}" onclick="event.stopPropagation()">{{ word.author }}</a> &middot; {{ word.date_created|date:"d M Y" }}</div>
+  </div>
 {% endfor %}
 
 {% if is_paginated %}
   <div class="pagination">
     {% if page_obj.has_previous %}
+      <a href="?page=1">&laquo; First</a>
       <a href="?page={{ page_obj.previous_page_number }}">&larr; Prev</a>
     {% endif %}
 
@@ -29,6 +30,7 @@
 
     {% if page_obj.has_next %}
       <a href="?page={{ page_obj.next_page_number }}">Next &rarr;</a>
+      <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
     {% endif %}
   </div>
 {% endif %}

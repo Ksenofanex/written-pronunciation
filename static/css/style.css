@@ -505,13 +505,13 @@ main.container {
 }
 
 .word-meta a {
-  color: var(--text-muted);
-  border-bottom: 1px solid transparent;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--text-muted);
 }
 
 .word-meta a:hover {
-  color: var(--text-secondary);
-  border-bottom-color: var(--text-secondary);
+  color: var(--text);
+  border-bottom-color: var(--text);
 }
 
 @keyframes slideUp {
