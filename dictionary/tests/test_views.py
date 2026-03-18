@@ -130,7 +130,7 @@ class WordCreateViewTests(WrittenPronunciationTestCase):
         assert "New Word" in response.content.decode("utf-8")
         assert "English word" in response.content.decode("utf-8")
         assert "Turkish word" in response.content.decode("utf-8")
-        assert "Send Word" in response.content.decode("utf-8")
+        assert "Add Word" in response.content.decode("utf-8")
 
 
 class WordUpdateViewTests(WrittenPronunciationTestCase):

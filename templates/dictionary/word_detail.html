@@ -3,37 +3,31 @@
 {% block title %}{{ word.english }}'s Pronunciation{% endblock title %}
 
 {% block content %}
-<div class="card word-detail-card">
-  <div class="card-body">
-    <div class="word-detail-english">{{ word.english }}</div>
-    <div class="word-detail-turkish">{{ word.turkish }}</div>
+  <div class="detail-word">{{ word.english }}</div>
+  <div class="detail-pronunciation">{{ word.turkish }}</div>
 
-    <div class="word-meta">
-      <span class="word-meta-badge">
-        by <a href="{% url 'user-words' word.author.username %}" class="ms-1">{{ word.author }}</a>
-      </span>
-      {% if word.author == user %}
-        <span class="word-meta-badge">Created {{ word.date_created|date:"d M, Y" }}</span>
-        <span class="word-meta-badge">Updated {{ word.date_updated|date:"d M, Y" }}</span>
-      {% endif %}
-    </div>
-
+  <div class="detail-meta">
+    <span class="detail-meta-item">Author: <strong><a href="{% url 'user-words' word.author.username %}">{{ word.author }}</a></strong></span>
     {% if word.author == user %}
-      <div class="d-flex justify-content-center gap-2 mt-4">
-        <a href="{% url 'word-update' word.pk %}" class="btn btn-primary">Edit Word</a>
-        <a href="{% url 'word-delete' word.pk %}" class="btn btn-outline-danger">Delete Word</a>
-      </div>
-    {% elif word.author != user and user.is_authenticated %}
-      <div class="alert alert-info mt-4" role="alert">
-        <p class="mb-2">Since you are not the author of the word, you can't delete or edit it.</p>
-        <a href="{% url 'logout' %}" class="btn btn-outline-primary btn-sm">Log out</a>
-      </div>
-    {% else %}
-      <div class="alert alert-info mt-4" role="alert">
-        <p class="mb-2">You need to log in for updating and deleting words. Only the author of the word can edit & delete.</p>
-        <a href="{% url 'login' %}" class="btn btn-glow">Log in</a>
-      </div>
+      <span class="detail-meta-item">Created: <strong>{{ word.date_created|date:"d M Y" }}</strong></span>
+      <span class="detail-meta-item">Updated: <strong>{{ word.date_updated|date:"d M Y" }}</strong></span>
     {% endif %}
   </div>
-</div>
+
+  {% if word.author == user %}
+    <div class="detail-actions">
+      <a href="{% url 'word-update' word.pk %}">Edit</a>
+      <a href="{% url 'word-delete' word.pk %}" class="danger">Delete</a>
+    </div>
+  {% elif word.author != user and user.is_authenticated %}
+    <div class="detail-accent-bar">
+      <p>Only the author can edit or delete this word</p>
+      <form method="post" action="{% url 'logout' %}" style="display:inline">{% csrf_token %}<button type="submit" class="detail-accent-link">Log out</button></form>
+    </div>
+  {% else %}
+    <div class="detail-accent-bar">
+      <p>Log in to edit or add your own words</p>
+      <a href="{% url 'login' %}">Log in</a>
+    </div>
+  {% endif %}
 {% endblock content %}

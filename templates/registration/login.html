@@ -5,14 +5,18 @@
 {% block title %}Log in{% endblock title %}
 
 {% block content %}
-<div class="form-card">
-    <h2>Log in</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div class="mt-4">
-            <button class="btn btn-primary w-100" type="submit">Log in</button>
-        </div>
-    </form>
+<div class="form-container">
+  <div class="form-title">Log In</div>
+  <div class="form-subtitle">Access your account</div>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="form-submit" type="submit">Log In</button>
+  </form>
+
+  <div class="form-footer">
+    <a href="{% url 'signup' %}" class="form-link">Don't have an account? Sign up</a>
+  </div>
 </div>
 {% endblock content %}

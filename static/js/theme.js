@@ -1,9 +1,9 @@
 (function () {
-  const STORAGE_KEY = 'theme';
-  const root = document.documentElement;
+  var STORAGE_KEY = 'theme';
+  var root = document.documentElement;
 
   function getPreferred() {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    var stored = localStorage.getItem(STORAGE_KEY);
     if (stored === 'dark' || stored === 'light') return stored;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
@@ -13,20 +13,22 @@
     localStorage.setItem(STORAGE_KEY, theme);
   }
 
-  // Apply immediately (no flash)
+  // Apply immediately in <head> — no flash of wrong theme
   apply(getPreferred());
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var btn = document.getElementById('theme-toggle');
-    if (!btn) return;
+  function handleToggle() {
+    root.classList.add('theme-transitioning');
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    apply(next);
+    setTimeout(function () {
+      root.classList.remove('theme-transitioning');
+    }, 400);
+  }
 
-    btn.addEventListener('click', function () {
-      root.classList.add('theme-transitioning');
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      apply(next);
-      setTimeout(function () {
-        root.classList.remove('theme-transitioning');
-      }, 400);
-    });
+  document.addEventListener('DOMContentLoaded', function () {
+    var btns = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', handleToggle);
+    }
   });
 })();

@@ -50,7 +50,7 @@ class SignUpViewTests(WrittenPronunciationTestCase):
     def test_content(self):
         """Checks if signup page contains correct content."""
         response = self.get(url_name="signup")
-        assert "Sign up" in response.content.decode("utf-8")
+        assert "Sign Up" in response.content.decode("utf-8")
         assert "Username" in response.content.decode("utf-8")
         assert "Password" in response.content.decode("utf-8")
         assert "Password confirmation" in response.content.decode("utf-8")
