@@ -1,158 +1,123 @@
 # Written Pronunciation
 
-**Although you can view this project on the demo site, it is no longer active or maintained. Still, you can open an issue or a PR if you find a critical bug, I'll take care of it ASAP.**
+An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words' verbal pronunciation.
 
-***
-
-An English written pronunciation site for Turkish hard of hearing and deaf people who can't listen to words' verbal pronunciation. It was my second project and I developed it while learning Django, Django Rest Framework and back end development in general.
-
-![Main Page SS](main-page-screenshot.png)
-
-***
+![Main Page Screenshot](main-page-screenshot.png)
 
 ## Features
 
-- Bootstrap5.
-- User authentication & authorization.
-- Create, Read, Update and Delete functionality.
-- Pagination.
-- Searching.
-- API authentication & authorization.
-- API CRUD functionality.
-- API documentation.
-- Thorough and elegant tests.
+- Brutalist "Ink Slab + Brutalist Mono" design with Archivo Black poster typography and IBM Plex Mono metadata
+- Dark mode with full theme inversion and localStorage persistence
+- Staggered slide-up animations on word lists with hover accent bars
+- User authentication and authorization
+- Word CRUD (create, read, update, delete)
+- Search functionality
+- Per-user word lists
+- Pagination
+- REST API with token authentication
+- Interactive API documentation (Swagger UI via drf-spectacular)
+- Comprehensive test suite (54 tests)
 
-# Live showcase
+## Tech Stack
 
-## Pages
+| Layer | Technology |
+|-------|-----------|
+| Backend | Django 5.1, Django REST Framework 3.15 |
+| Auth | django-allauth 64.x, dj-rest-auth 7.x |
+| API Docs | drf-spectacular (OpenAPI 3.0) |
+| Forms | django-crispy-forms + crispy-bootstrap5 |
+| Frontend | Bootstrap 5, custom CSS design system |
+| Fonts | Archivo Black, IBM Plex Mono, Inter |
+| Testing | pytest, factory-boy, django-test-plus |
+| Package Manager | uv + pyproject.toml |
+| Database | SQLite (development) |
 
-- [Sign up](https://writtenpronunciationksenofanex.fly.dev/users/signup/) 
+## Quick Start
 
-- [Log in](https://writtenpronunciationksenofanex.fly.dev/users/login/)
+### Prerequisites
 
-- [Main](https://writtenpronunciationksenofanex.fly.dev/)
+- Python 3.12+
+- [uv](https://docs.astral.sh/uv/) package manager
 
-- [Word Detail](https://writtenpronunciationksenofanex.fly.dev/3/) 
-
-- [User's Words](https://writtenpronunciationksenofanex.fly.dev/user-words/Ksenofanex/)
-
-## API Registration & Authentication
-
-- [API Registration](https://writtenpronunciationksenofanex.fly.dev/api/v1/rest-auth/registration/) 
-
-- [API Log in](https://writtenpronunciationksenofanex.fly.dev/api-auth/login/?next=/api/)
-
-## API
-
-- [API Root](https://writtenpronunciationksenofanex.fly.dev/api/)
-
-- [API Main](https://writtenpronunciationksenofanex.fly.dev/api/words/) 
-
-## API Documentation
-
-- [Main Documentation](https://writtenpronunciationksenofanex.fly.dev/swagger-docs/)
-
-# Installation
-
-## Clone the project
-
-Depending on the choice of yours, you can clone the project in various ways. Either via IDE, Git Desktop or Git commands.
-
-Whatever the case, make sure Git is installed and after cloning the project, you are at the same working directory with the project.
-
-- Look below for cloning the project via bash:
+### Setup
 
 ```bash
-$ git clone https://github.com/Ksenofanex/written-pronunciation.git
+git clone https://github.com/Ksenofanex/written-pronunciation.git
+cd written-pronunciation
 
-$ cd written-pronunciation
+# Create environment file
+cp .env.example .env
+# Edit .env with your SECRET_KEY (generate one at https://djecrety.ir/)
 
-$ pwd
-/written-pronunciation
+# Install dependencies and create virtual environment
+uv sync
+
+# Run migrations
+uv run python manage.py makemigrations
+uv run python manage.py migrate
+
+# Start the server
+uv run python manage.py runserver
 ```
 
-## Environment Variables
+Then open http://localhost:8000/
 
-Before installing the project, you need a proper `.env` file. The project's [settings.py](written_pronunciation/settings.py) module is depending on these variables.
-
-The project has a fictional [env file](.env.example) for educational purposes. You can either manually create a `.env` file or enter the command below to the bash/terminal to clone a proper `.env` file:
+### Running Tests
 
 ```bash
-$ cp .env.example .env
+uv run pytest
 ```
 
-An example configuration for the `.env` file:
+### Environment Variables
+
+Create a `.env` file in the project root:
 
 ```
 DEBUG=True
-SECRET_KEY=itdb4-_wc!=*hgl3)h@v$#jy7bxingn(n+qklsdso%9yq&c5)!
+SECRET_KEY=your-secret-key-here
 ```
 
-- You can generate the `SECRET_KEY` via sites like [Djecrety](https://djecrety.ir/) and add it to the `.env` file.
+Set `DEBUG=False` in production.
 
-> Set DEBUG to True while developing and testing in local/testing environments. Otherwise, set DEBUG to False.
+## API
 
-After properly configuring the environment variables, you can proceed to the [Venv](https://github.com/Ksenofanex/written-pronunciation#venv) section to initialize the project.
+| Endpoint | Description |
+|----------|-------------|
+| `/api/words/` | Word list and creation |
+| `/api/words/<id>/` | Word detail, update, delete |
+| `/api/docs/` | Swagger UI documentation |
+| `/api/schema/` | OpenAPI 3.0 schema |
+| `/api/v1/rest-auth/` | Authentication endpoints |
+| `/api/v1/rest-auth/registration/` | Registration endpoint |
 
-## Venv
-Make sure your working directory is the same with the project and virtualenv package is installed in your OS.
+## Project Structure
 
-<details>
-<summary>Windows</summary>
-
-```bash
-> pwd
-\written-pronunciation
-
-> pip install virtualenv
-
-> virtualenv env
-
-> .\env\Scripts\activate
-
-> pip install -r requirements.txt
-
-> python manage.py makemigrations
-
-> python manage.py migrate
-
-> python manage.py runserver
+```
+written-pronunciation/
+├── dictionary/          # Word model, views, templates
+├── users/               # Custom user model, signup
+├── api/                 # DRF viewsets, serializers, filters
+├── templates/           # Django templates (Ink Slab design)
+├── static/
+│   ├── css/style.css    # Full design system (~1200 lines)
+│   └── js/theme.js      # Dark mode toggle (no-flash IIFE)
+├── written_pronunciation/
+│   ├── settings.py      # Django 5.1 settings (pathlib)
+│   └── urls.py          # URL configuration
+└── pyproject.toml       # Dependencies (managed by uv)
 ```
 
-![Virtualenv GIF](https://i.imgur.com/T769x6j.gif)
+## Design
 
-</details>
+The frontend uses an "Ink Slab + Brutalist Mono" hybrid aesthetic:
 
-<details>
-<summary>Linux</summary>
+- **Word list**: Massive uppercase Archivo Black type with staggered entrance animations and hover accent bars
+- **Detail pages**: Poster-scale typography (up to 8rem)
+- **Navbar**: Black bar with 3px border, underline search, IBM Plex Mono nav links
+- **Dark mode**: Full color inversion — navbar flips to light, backgrounds to near-black
+- **Forms**: Brutalist underline inputs (auth) and boxed inputs (word CRUD)
+- **Responsive**: Mobile-first with breakpoints at 768px and 992px
 
-```bash
-$ pwd
-/written-pronunciation
+## License
 
-$ pip3 install virtualenv
-
-$ python3 -m venv env
-
-$ source env/bin/activate
-
-$ pip3 install requirements.txt
-
-$ python3 manage.py makemigrations
-
-$ python3 manage.py migrate
-
-$ python3 manage.py runserver
-```
-
-</details>
-
-- After the installation process, you must see this output:
-
-![Virtualenv success output](https://i.imgur.com/9Dwp7s0.png)
-
-Then you can start exploring the project from either http://localhost:8000/ or http://localhost:8000/api. Happy coding!
-
-> Remember, you must approve the created Words from the admin panel in order them to be visible across the project.
-
-> You can access to the documentation of the project from this URLs (http://localhost:8000/swagger-docs/ or http://127.0.0.1:8000/swagger-docs/).
+This project is open source. See the repository for license details.
