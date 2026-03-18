@@ -20,7 +20,7 @@ DEBUG = env.bool(
     "DEBUG"
 )  # Don't forget to make this FALSE in the env file before deployment.
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
 # Application definition
 
@@ -137,6 +137,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -162,10 +163,9 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_VERSIONING_CLASS": (  # For API versioning. Defined in namespace
-        # of root url. v1, v2 etc.
-        "rest_framework.versioning.NamespaceVersioning"
-    ),
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.NamespaceVersioning",
+    "DEFAULT_VERSION": "v1",
+    "ALLOWED_VERSIONS": ["v1"],
     "DEFAULT_FILTER_BACKENDS": (  # For django-filter package.
         "django_filters.rest_framework.DjangoFilterBackend",
     ),

@@ -23,10 +23,10 @@ class UserModelTests(WrittenPronunciationTestCase):
     def test_is_created(self):
         assert self.test_user.username == "test-user-1"
         assert self.test_user.email == "test-user-email@protonmail.com"
-        assert self.test_user.password == "test-password"
+        assert self.test_user.check_password("test-password")
 
     def test_super_user_is_created(self):
         assert self.superuser.username == "superuser_1"
         assert self.superuser.email == "test-superuser-email@protonmail.com"
-        assert self.superuser.password == "test_password"
+        assert self.superuser.check_password("test_password")
         assert self.superuser.is_superuser is True

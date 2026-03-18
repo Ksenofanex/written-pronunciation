@@ -3,7 +3,6 @@ from django.urls import path, include
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
-from api.urls import router as api_router
 
 urlpatterns = [
     path("", include("dictionary.urls")),
@@ -12,7 +11,7 @@ urlpatterns = [
     path("users/", include("users.urls")),
     path("users/", include("django.contrib.auth.urls")),
     # API.
-    path("api/", include((api_router.urls, "v1"))),
+    path("api/", include("api.urls")),
     path(
         "api-auth/", include("rest_framework.urls")
     ),  # Djangorestframework built-in api log in & out.

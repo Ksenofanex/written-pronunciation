@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -19,6 +20,7 @@ class WordListView(ListView):
 
 class WordDetailView(DetailView):
     model = Word
+    queryset = Word.objects.select_related("author")
     template_name = "dictionary/word_detail.html"
     context_object_name = "word"
 
@@ -50,8 +52,8 @@ class WordUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         self,
     ):  # For authorization. If logged in user is not the author itself,
         # it can't edit & delete.
-        object = self.get_object()
-        return object.author == self.request.user
+        self.object = self.get_object()
+        return self.object.author == self.request.user
 
 
 class WordDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -66,8 +68,8 @@ class WordDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         self,
     ):  # For authorization. If logged in user is not the author itself,
         # it can't edit & delete.
-        object = self.get_object()
-        return object.author == self.request.user
+        self.object = self.get_object()
+        return self.object.author == self.request.user
 
 
 class SearchResultsView(ListView):
@@ -77,7 +79,7 @@ class SearchResultsView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        query = self.request.GET.get("q")
+        query = self.request.GET.get("q", "")
         return Word.objects.select_related("author").filter(
             english__icontains=query, is_approved=True
         )
@@ -96,9 +98,11 @@ class UserWordListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
+        username = self.kwargs.get("username")
+        get_object_or_404(get_user_model(), username=username)
         return (
             Word.objects.select_related("author")
             .filter(
-                author__username=self.kwargs.get("username"), is_approved=True
+                author__username=username, is_approved=True
             )
         )

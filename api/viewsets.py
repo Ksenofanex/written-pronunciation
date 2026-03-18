@@ -16,3 +16,6 @@ class WordViewSet(viewsets.ModelViewSet):
         IsAuthorOrReadOnly,
     )
     filterset_class = WordFilter
+
+    def perform_update(self, serializer):
+        serializer.save(is_approved=False)

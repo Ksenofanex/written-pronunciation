@@ -1142,14 +1142,6 @@ main.container {
    MOBILE NAV LINKS
    ════════════════════════════════════════════ */
 
-@media (max-width: 991px) {
-  .navbar-auth.d-none.d-lg-flex {
-    display: flex !important;
-  }
-  .navbar-auth.d-lg-none {
-    display: none !important;
-  }
-}
 
 /* ════════════════════════════════════════════
    HIDE old card-based styles that might leak
