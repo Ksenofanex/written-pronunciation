@@ -3,13 +3,13 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="form-container" style="max-width: 600px; margin: 2rem auto;">
-    <h1 class="mb-4">New Word</h1>
+<div class="form-card">
+    <h1>New Word</h1>
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <div class="mt-4">
-            <button class="btn btn-primary" type="submit">Send Word</button>
+            <button class="btn btn-primary w-100" type="submit">Send Word</button>
         </div>
     </form>
 </div>

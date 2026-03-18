@@ -3,13 +3,13 @@
 {% block title %}{{ view.kwargs.username }}'s Words{% endblock title %}
 
 {% block content %}
-<h1 class="h3 mb-4">Words by {{ view.kwargs.username }} <span class="text-muted">({{ page_obj.paginator.count }})</span></h1>
+<h1 class="page-title">Words by {{ view.kwargs.username }} <span class="text-muted">({{ page_obj.paginator.count }})</span></h1>
 
 {% for word in word_list %}
   <div class="card">
     <div class="card-header">
       <div class="d-flex flex-wrap align-items-center gap-3">
-        <h2 class="h4 mb-0">
+        <h2 class="word-english mb-0">
           <a href="{{ word.get_absolute_url }}" class="text-decoration-none">{{ word.english }}</a>
         </h2>
         <div class="d-flex align-items-center gap-3">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="card-body">
-      <p class="mb-0">{{ word.turkish }}</p>
+      <p class="word-turkish mb-0">{{ word.turkish }}</p>
     </div>
   </div>
 {% endfor %}

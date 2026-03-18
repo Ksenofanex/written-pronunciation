@@ -287,7 +287,7 @@ class WordDeleteViewTests(WrittenPronunciationTestCase):
             self.assert_http_200_ok(response=response)
 
         assert "Delete" in response.content.decode("utf-8")
-        assert "Confirm" in response.content.decode("utf-8")
+        assert "Cancel" in response.content.decode("utf-8")
 
 
 class SearchViewTests(WrittenPronunciationTestCase):

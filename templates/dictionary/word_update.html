@@ -3,13 +3,13 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="form-container" style="max-width: 600px; margin: 2rem auto;">
-    <h1 class="mb-4">Update "{{ word.english }}" Word</h1>
+<div class="form-card">
+    <h1>Update "{{ word.english }}"</h1>
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <div class="mt-4">
-            <button class="btn btn-primary" type="submit">Update</button>
+            <button class="btn btn-primary w-100" type="submit">Update</button>
         </div>
     </form>
 </div>
